@@ -1,8 +1,16 @@
 import {cheerio, 模板} from '../dist/drpy-core-fast.min.js';
 
 let vercode = typeof (pdfl) === 'function' ? 'drpy2.1' : 'drpy2';
-const VERSION = vercode + ' 3.9.53 20251007';
+const VERSION = vercode + ' 3.9.54 20260117';
 const UpdateInfo = [
+    {
+        date: '20260117',
+        title: '爱佬新So测试版，使用drpy-core-fast.min.js',
+        version: '3.9.54 20260117',
+        msg: `
+drpy-core-fast.min.js内置了url和sqlite模块
+       `
+    },
     {
         date: '20251007',
         title: '爱佬新So测试版，使用drpy-core-lite.min.js，内置了Buffer库',
@@ -904,7 +912,7 @@ function gzip(str) {
  * @returns {string}
  */
 function ungzip(b64Data) {
-    const binData = Buffer.from(b64Data,'base64');
+    const binData = Buffer.from(b64Data, 'base64');
     const data = zlib.ungzip(binData.buffer);
     return Buffer.from(data, 'utf8').toString();
 }
@@ -1016,7 +1024,8 @@ const RSA = {
                 encryptedData.set(segment, offset);
                 offset += segment.length;
             }
-            return encryptedData.slice(0, offset);;
+            return encryptedData.slice(0, offset);
+            ;
         }
         return crypto.subtle.encrypt(
             {
@@ -1052,7 +1061,7 @@ const RSA = {
             }
             return decryptedData.slice(0, offset);
         }
-        return new Uint8Array(crypto.subtle.decrypt (
+        return new Uint8Array(crypto.subtle.decrypt(
             {
                 name: "RSA-PKCS1-v1_5",
             },
@@ -1060,7 +1069,7 @@ const RSA = {
             mergedData
         ));
     },
-    decode: function(data, key) {
+    decode: function (data, key) {
         try {
             const mergedDataArray = Uint8Array.from(Buffer.from(data, 'base64'));
             const privateKey = this.importPrivateKey(key);
@@ -1073,7 +1082,7 @@ const RSA = {
             throw error;
         }
     },
-    encode: function(plainText, publicKeyPem) {
+    encode: function (plainText, publicKeyPem) {
         try {
             const publicKey = this.importPublicKey(publicKeyPem);
             //console.time("RSA加密");
@@ -3464,7 +3473,7 @@ function getOriginalJs(js_code) {
         const key = crypto.subtle.importKey(
             "raw",
             keyArray,
-            { name: "AES-CBC" },
+            {name: "AES-CBC"},
             false,
             ["decrypt"]
         );

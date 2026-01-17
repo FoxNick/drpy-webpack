@@ -16,7 +16,8 @@ import './libs/jinja.min.js';
 // import './libs/polywasm.min.js';
 import './libs/xxhash-wasm.min.js';
 // export {Buffer} from './libs/buffer.min.js'
-
+import "./libs/url.js";
+import "./libs/sqlite.js";
 
 // 确保全局依赖可用
 const g = globalThis;
@@ -28,6 +29,7 @@ const CryptoJS = g.CryptoJS;
 const JSON5 = g.JSON5;
 const JSONPath = g.JSONPath;
 const jinja = g.jinja;
+const Database = g.Database;
 // const WebAssembly = g.WebAssembly;
 // const TextEncoder = g.TextEncoder;
 // const TextDecoder = g.TextDecoder;
@@ -66,6 +68,7 @@ export {
     JSON5,
     JSONPath,
     jinja,
+    Database,
     // WebAssembly,
     // TextEncoder,
     // TextDecoder,

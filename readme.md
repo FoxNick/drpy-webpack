@@ -1,10 +1,11 @@
 ## drpy_webpack
 
-drpy2框架的打包项目。所有依赖打包成一个`drpy-core.min.js` `drpy-core-lite.min.js`
+drpy2框架的打包项目。所有依赖打包成一个`drpy-core.min.js` `drpy-core-lite.min.js` `drpy-core-fast.min.js`
 
 [drpyS项目传送门](https://github.com/hjdhnx/drpy-node)
 
 当前版本号: `3.9.52beta3 20250801`
+特殊QJS版本: `3.9.54 20260117`
 
 注意复制到drpyS项目 `public/drpy` 目录前需要把 init_test里的一些调试日志注释掉
 
